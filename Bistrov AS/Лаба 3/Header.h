@@ -19,20 +19,18 @@ public:
 
 	void SetCompB(int a);
 
-	void Output(const Load& load);
-
-	Load()
-	{
-		value = 0;
-	};
+	void output();
 
 	Load(int i) : value(i)
+
 	{};
+
+	Load();
 
 	~Load();
 
-	//унарные операторы
-	const Load& operator+(const Load& i) //унарный плюс
+
+	const Load& operator+(const Load& i)
 	{
 		return i.value;
 	}
@@ -42,51 +40,49 @@ public:
 		return (-i.value);
 	};
 
-	//бинарные операторы
-
-	friend const Load& operator++(Load& i) //префиксная версия возвращает значение после инкремента
+	friend const Load& operator++(Load& i)
 	{
 		i.value++;
 		return i;
 	};
 
-	friend const Load operator++(Load& i, int) //постфиксная версия возвращает значение до инкремента
+	friend const Load operator++(Load& i, int)
 	{
 		Load preValue(i.value);
 		i.value++;
 		return i;
 	}
-	
-	friend const Load& operator--(Load& i) //префиксная версия возвращает значение после декремента
+
+	friend const Load& operator--(Load& i)
 	{
 		Load preValue(i.value);
 		i.value--;
 		return i;
 	}
 
-	friend const Load& operator--(Load& i, int) //постфиксная версия возвращает значение до декремента
+	friend const Load& operator--(Load& i, int)
 	{
 		Load preValue(i.value);
 		i.value--;
 		return preValue;
 	}
 
-	friend const Load operator+(const Load& left, const Load& right) //оператор возвращает значение i
+	friend const Load operator+(const Load& left, const Load& right)
 	{
 		return Load(left.value + right.value);
 	}
 
-	friend bool operator==(const Load& left, const Load& right) //оператор, создающий новое значение
+	friend bool operator==(const Load& left, const Load& right)
 	{
 		return left.value == right.value;
 	}
 
-	Load operator*(const Load& i) //разыменование указателя
+	Load operator*(const Load& i)
 	{
 		int* ptr = &value;
 	}
 
-	Load& operator=(const Load& right) // оператор присваивания
+	Load& operator=(const Load& right)
 	{
 		if (this == &right)
 		{
@@ -96,9 +92,9 @@ public:
 		return *this;
 	}
 
-	//операции сравнения
 
-	friend const Load operator>(const Load& left, const Load& right) //оператор сравнения "Больше"
+
+	friend const Load operator>(const Load& left, const Load& right)
 	{
 		if (left.value > right.value)
 		{
@@ -110,7 +106,7 @@ public:
 		}
 	}
 
-	friend const Load operator<(const Load& left, const Load& right) //оператор сравнения "Меньше"
+	friend const Load operator<(const Load& left, const Load& right)
 	{
 		if (left.value < right.value)
 		{
@@ -122,7 +118,7 @@ public:
 		}
 	}
 
-	friend const Load operator>=(const Load& left, const Load& right) //оператор сравнения "Больше или равно"
+	friend const Load operator>=(const Load& left, const Load& right)
 	{
 		if (left.value >= right.value)
 		{
@@ -134,7 +130,7 @@ public:
 		}
 	}
 
-	friend const Load operator<=(const Load& left, const Load& right) //оператор сравнения "Меньше или равно"
+	friend const Load operator<=(const Load& left, const Load& right)
 	{
 		if (left.value <= right.value)
 		{
@@ -146,7 +142,7 @@ public:
 		}
 	}
 
-	friend const Load operator!=(const Load& left, const Load& right) //оператор сравнения "Неравенство"
+	friend const Load operator!=(const Load& left, const Load& right)
 	{
 		if (left.value != right.value)
 		{
@@ -158,7 +154,7 @@ public:
 		}
 	}
 
-	// логические операции
+
 
 	friend const Load operator!(const Load& i)
 	{
@@ -174,7 +170,7 @@ public:
 
 	friend const Load operator&&(const Load& left, const Load& right)
 	{
-		if (left.value==true, right.value==true)
+		if (left.value == true, right.value == true)
 		{
 			return true;
 		}
@@ -190,8 +186,8 @@ public:
 		{
 			return true;
 		}
-		
-		if(left.value == false, right.value == true)
+
+		if (left.value == false, right.value == true)
 		{
 			return true;
 		}
@@ -201,9 +197,8 @@ public:
 		}
 	}
 
-	// составное присваивание
 
-	friend Load operator+=(Load& left, const Load& right) 
+	friend Load operator+=(Load& left, const Load& right)
 	{
 		left.value += right.value;
 		return left;
@@ -227,7 +222,6 @@ public:
 		return left;
 	}
 
-	//oператоры работы с указателями и членами класса
 
 	friend Load operator *(Load& i)
 	{
@@ -239,7 +233,6 @@ public:
 		return &i;
 	}
 
-	//Другие операторы
 
 	friend Load operator,(Load& left, Load& right)
 	{

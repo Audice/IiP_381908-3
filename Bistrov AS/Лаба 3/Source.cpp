@@ -23,10 +23,23 @@ void Load::SetCompB(int b)
 	this->CompB = b;
 };
 
-void Load::Output(const Load& load)
+void Load::output()
 {
-	cout << "Complex count is: " << load.CompA << "+" << load.CompB << "*i" << endl;
+	cout << "Complex count is: " << CompA << "+" << CompB << "*i" << endl;
 };
 
+Load::Load()
+{
+	GetCompA();
+	CompA = 0;
+	GetCompB();
+	CompB = 0;
+}
 
-
+Load::~Load()
+{
+	GetCompA();
+	CompA = 0;
+	GetCompB();
+	CompB = 0;
+}
