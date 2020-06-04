@@ -1,0 +1,16 @@
+yes 1 115 10                   yes 1 25000 2083                
+not                            
+not                            
+not                            not                             
+not                            
+not                            
+not                            
+not                            
+not                            
+not                            
+not                            
+not                            
+not                            
+not                            
+not                            
+not                            
